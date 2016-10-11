@@ -35,8 +35,9 @@ public class JFHW7E1 {
 
   @Actor
   public void actor2(IntResult2 r) {
-    // write the results of the actions in the r parameter.
-
+    // write the results of the actions into the fields of r parameter.
+    r.r1 = 0; // use the state if you need to, you have access to a and b here.
+    
     // don't forget to copy the results from the results/.*JFHW7E1.html
     // to the comment in this file and describe in more detail why the results are possible under the JMM
     // which results are interesting and when can they occur, the reloading, lack of those, etc.
