@@ -20,6 +20,8 @@ The command below will execute all tests that start with JFHW7.
 java -Xbootclasspath/a:./ext-lib/jcstress-core.jar:./ext-lib/jopt-simple.jar:./target/jf2016-hw7-0.0.1-SNAPSHOT.jar org.openjdk.jcstress.Main -t=".*JFHW7"
 ```
 
+**NB. this complicated way of running is because jcstress master is set to require Java 9 minimum now. So we are using a bit older build. 
+
 
 Check the results in the "results" dir. 
 Copy the relevant portion of the HTML result table into the comment in the source file of the test and explain the details of why did it happen this way. 
@@ -39,9 +41,43 @@ then the probability of me missing the emails is smaller.
  
 Cheers, 
 Oleg!
-  
-  
 
+
+Here is the description of the tests you have to create: 
+
+JFHW7E1.java
+-------
+``` 
+Shared memory: int a; int b
+
+Thread 1: b = 1; x = a;
+Thread 2: a = 1; y = b;
+```
+
+**Question**: what values of x, y can be observed at the end? 
+ 
+JFHW7E2.java
+--------
+``` 
+Shared memory: an instance of java.util.BitSet
+
+Thread 1: sets 0th bit of the BitSet to true
+Thread 2: sets 1st bit of the BitSet to true
+```
+
+**Question**: what values of 0th and 1st bits in the bitset can be observed at the end?  
+  
+JFHW7E3.java
+--------
+  
+Come up with a description of the test that shows non-trivial executions.
+If a result of the test shows interesting reorderings, the properties of the volatiles, or something you think is worth showing. 
+  
+Create a test and explain it. 
+ 
+Good luck!
+ 
+===========
 The Original README is below! 
 ===========
 The project is intended for the Java Fundamentals class as a skeleton project. It is a [Maven](http://maven.apache.org/)
