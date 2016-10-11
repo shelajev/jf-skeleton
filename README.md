@@ -1,6 +1,49 @@
-Java Fundamentals - Project Skeleton
+Java Fundamentals - 2016, Homework 7
 ===========
 
+This homework compiles for me on Java 8. 
+```
+java -version
+java version "1.8.0_91"
+Java(TM) SE Runtime Environment (build 1.8.0_91-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.91-b14, mixed mode)
+```
+
+Build the executable jar:
+``` 
+mvn clean install
+```
+
+Run the jcstress test, change the pattern given as the *-t* argument to specify which tests to execute.
+The command below will execute all tests that start with JFHW7. 
+```
+java -Xbootclasspath/a:./ext-lib/jcstress-core.jar:./ext-lib/jopt-simple.jar:./target/jf2016-hw7-0.0.1-SNAPSHOT.jar org.openjdk.jcstress.Main -t=".*JFHW7"
+```
+
+
+Check the results in the "results" dir. 
+Copy the relevant portion of the HTML result table into the comment in the source file of the test and explain the details of why did it happen this way. 
+
+Check the JFHW7E1.java for more details on what code is necessary for the tests.
+ 
+Add the tests the homework requires you to, execute them, experiment with it. Have fun :) 
+I mean since the harness tells you what results were achieved it's hard to make mistakes here.
+ If you need inspiration check out the existing tests in the [jcstress repo](http://hg.openjdk.java.net/code-tools/jcstress/).
+ 
+
+Good luck!
+
+
+Consult the original readme on how to submit the homework. I just basically need your .java files and your student number. But submit it properly, 
+then the probability of me missing the emails is smaller.
+ 
+Cheers, 
+Oleg!
+  
+  
+
+The Original README is below! 
+===========
 The project is intended for the Java Fundamentals class as a skeleton project. It is a [Maven](http://maven.apache.org/)
 project with a dependency on [Apache Commons Lang](http://commons.apache.org/lang/) and it produces a single
 JAR file that can be executed via

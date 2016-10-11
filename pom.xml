@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>ee.ut</groupId>
-  <artifactId>jf2016-hwX</artifactId>
+  <artifactId>jf2016-hw7</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>jf2016-hwX</name>
-  <url>https://github.com/zeroturnaround/jf-skeleton</url>
+  <name>jf2016-hw7</name>
+  <url>https://github.com/shelajev/jf-skeleton</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,48 +16,23 @@
 
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
+      <groupId>org.openjdk.jcstress</groupId>
+      <artifactId>jcstress-core</artifactId>
+      <scope>system</scope>
+      <version>1.0.0-SNAPSHOT</version>
+      <systemPath>${basedir}/ext-lib/jcstress-core.jar</systemPath>
     </dependency>
     <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>3.4</version>
+      <groupId>net.sf.jopt-simple</groupId>
+      <artifactId>jopt-simple</artifactId>
+      <version>4.6</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/ext-lib/jopt-simple.jar</systemPath>
     </dependency>
   </dependencies>
 
   <build>
     <plugins>
-      <!-- Be sure to have a correct Main class specified here -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.0.2</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <mainClass>ee.ut.jf2016.Main</mainClass>
-            </manifest>
-          </archive>
-          <finalName>jf2016-executable</finalName>
-        </configuration>
-      </plugin>
-      <!-- This plugin will package all dependencies to the final runtime -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>2.4.3</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
       <!-- Set Java language level to 8 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -67,6 +42,29 @@
           <source>1.8</source>
           <target>1.8</target>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>1.7.1</version>
+        <executions>
+          <execution>
+            <id>main</id>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <finalName>jcstress.jar</finalName>
+              <transformers>
+                <transformer
+                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>org.openjdk.jcstress.Main</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
