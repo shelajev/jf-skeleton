@@ -20,6 +20,12 @@ The command below will execute all tests that start with JFHW7.
 java -Xbootclasspath/a:./ext-lib/jcstress-core.jar:./ext-lib/jopt-simple.jar:./target/jf2016-hw7-0.0.1-SNAPSHOT.jar org.openjdk.jcstress.Main -t=".*JFHW7"
 ```
 
+or the following one if you're on Windows (I think, because I don't have a Windows machine nearby, in case it still doesn't work, check the [documentation](https://docs.oracle.com/cd/E15289_01/doc.40/e15062/optionx.htm#i1021218):
+```
+java -Xbootclasspath/a:./ext-lib/jcstress-core.jar;./ext-lib/jopt-simple.jar;./target/jf2016-hw7-0.0.1-SNAPSHOT.jar org.openjdk.jcstress.Main -t=".*JFHW7"
+```
+
+
 **NB. this complicated way of running is because jcstress master is set to require Java 9 minimum now. So we are using a bit older build. 
 
 
