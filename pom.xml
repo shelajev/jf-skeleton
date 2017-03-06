@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>ee.ut</groupId>
-  <artifactId>jf2017-hw6</artifactId>
+  <groupId>org.zeroturnaround.jf</groupId>
+  <artifactId>homework6</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>jf2017-hw6</name>
+  <name>jf-${project.artifactId}</name>
   <url>https://github.com/shelajev/jf-skeleton</url>
 
   <properties>
@@ -81,13 +81,12 @@
               <target>
                 <input message="Your full name (e.g. John Smith): "                        addproperty="full-name" />
                 <input message="Your Student Book Number (matrikli number, e.g. B12345): " addproperty="sbn" />
-                <input message="Homework number: "                            addproperty="homework-number" />
                 <input message="Comment: "                                    addproperty="comment" />
-                <echo file="homework.properties" append="false">full-name=${full-name}${line.separator}sbn=${sbn}${line.separator}homework-number=${homework-number}${line.separator}comment=${comment}
+                <echo file="homework.properties" append="false">full-name=${full-name}${line.separator}sbn=${sbn}${line.separator}homework-number=${project.name}${line.separator}comment=${comment}
                 </echo>
                 <basename property="build-directory-name" file="${project.build.directory}"/>
-                <zip destfile="${project.build.directory}/jf-homework-${sbn}-${homework-number}.zip">
-                  <zipfileset dir="." prefix="jf-homework" excludes="${build-directory-name}/**,dependency-reduced-pom.xml,.settings/**,.idea/**,*.iml,*.ipr,*.iws"/>
+                <zip destfile="${project.build.directory}/${project.name}-${sbn}.zip">
+                  <zipfileset dir="." prefix="jf-homework" excludes="${build-directory-name}/**,dependency-reduced-pom.xml,.mvn/**,mvnw,mvnw.cmd,.settings/**,.idea/**,*.iml,*.ipr,*.iws,ext-lib/**"/>
                 </zip>
                 <delete file="homework.properties"/>
               </target>
