@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>ee.ut</groupId>
-  <artifactId>jf2016-hw7</artifactId>
+  <artifactId>jf2017-hw6</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>jf2016-hw7</name>
+  <name>jf2017-hw6</name>
   <url>https://github.com/shelajev/jf-skeleton</url>
 
   <properties>

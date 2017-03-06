@@ -1,9 +1,13 @@
-package ee.ut.jf2016.homework7;
+package org.zeroturnaround.jf;
 
 import org.openjdk.jcstress.annotations.*;
 import org.openjdk.jcstress.infra.results.IntResult2;
 
 import static org.openjdk.jcstress.annotations.Expect.ACCEPTABLE_INTERESTING;
+
+/**
+  Read and learn how to use jcstress: http://openjdk.java.net/projects/code-tools/jcstress/
+*/
 
 @JCStressTest
 @Description("Describe your test here") // change the description
@@ -17,7 +21,7 @@ import static org.openjdk.jcstress.annotations.Expect.ACCEPTABLE_INTERESTING;
 // for the real tests, when you fill the @Actor methods, uncomment and change the lines above.
 @Outcome(id = "[0, 0]", expect = ACCEPTABLE_INTERESTING,  desc = "Use ACCEPTABLE_INTERESTING to show interesting cases")
 @State
-public class JFHW7E1 {
+public class JFHW6E1 {
 
   // the fields of the @State object are the shared memory, all @Actors have access to these
   // use them to model the shared memory for the expriment
@@ -37,7 +41,7 @@ public class JFHW7E1 {
   public void actor2(IntResult2 r) {
     // write the results of the actions into the fields of r parameter.
     r.r1 = 0; // use the state if you need to, you have access to a and b here.
-    
+
     // don't forget to copy the results from the results/.*JFHW7E1.html
     // to the comment in this file and describe in more detail why the results are possible under the JMM
     // which results are interesting and when can they occur, the reloading, lack of those, etc.
@@ -55,4 +59,3 @@ public class JFHW7E1 {
 
 
 }
-
