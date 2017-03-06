@@ -65,7 +65,7 @@ Thread 2: a = 1; y = b;
 
 Devise the test, run it, explain the outcome in the source file!!
 
-jf2017-hw6E2.java
+JFHW6E2.java
 --------
 ```
 Shared memory: an instance of java.util.BitSet
